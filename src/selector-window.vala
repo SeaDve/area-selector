@@ -22,7 +22,7 @@ public class AreaSelector.Window : Gtk.Window {
         this.deletable = false;
         this.decorated = false;
         this.fullscreen ();
-        this.set_cursor (new Gdk.Cursor.from_name("crosshair", null));
+        this.drawing_area.set_cursor (new Gdk.Cursor.from_name("crosshair", null));
     }
 
     struct Point {
