@@ -11,7 +11,7 @@ public class AreaSelector.Window : Gtk.Window {
     private Point end_point { get; set; }
 
     [GtkChild]
-    public unowned Gtk.DrawingArea drawing_area;
+    private unowned Gtk.DrawingArea drawing_area;
 
     public Window (Gtk.Application app) {
         Object (application: app);
@@ -22,7 +22,7 @@ public class AreaSelector.Window : Gtk.Window {
         this.deletable = false;
         this.decorated = false;
         this.fullscreen ();
-        this.set_cursor(new Gdk.Cursor.from_name("crosshair", null));
+        this.set_cursor (new Gdk.Cursor.from_name("crosshair", null));
     }
 
     struct Point {
@@ -57,7 +57,6 @@ public class AreaSelector.Window : Gtk.Window {
         };
 
         this.captured ((int) topleft_point.x, (int) topleft_point.y, (int) area.w, (int) area.h);
-
     }
 
     [GtkCallback]
@@ -79,7 +78,6 @@ public class AreaSelector.Window : Gtk.Window {
             ctx.set_line_width (1);
             ctx.stroke ();
         });
-
     }
 
     [GtkCallback]
