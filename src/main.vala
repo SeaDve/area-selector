@@ -3,7 +3,7 @@
 
 int main (string[] argv) {
 
-    var app = new Gtk.Application ("com.github.seadve.AreaSelector",
+    var app = new Gtk.Application ("io.github.seadve.AreaSelector",
                                    GLib.ApplicationFlags.FLAGS_NONE);
 
     app.activate.connect (() => {
