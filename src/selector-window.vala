@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright 2021 SeaDve
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 [GtkTemplate (ui = "/io/github/seadve/AreaSelector/selector-window.ui")]
 public class AreaSelector.Window : Gtk.Window {
     public signal void captured (int x, int y, int w, int h);
