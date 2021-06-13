@@ -30,7 +30,9 @@ public class AreaSelector.Window : Gtk.Window {
         public double y;
     }
 
-    struct Area {
+    struct Rectangle {
+        public double x;
+        public double y;
         public double w;
         public double h;
     }
@@ -46,21 +48,13 @@ public class AreaSelector.Window : Gtk.Window {
         this.dragging = false;
         this.end_point = { x, y };
 
-        var topleft_point = this.get_topleft_point (this.start_point, this.end_point);
-        var area = this.get_area (this.start_point, this.end_point);
-
-        if (area.w == 0 && area.h == 0) {
-            area.w = topleft_point.x;
-            area.h = topleft_point.y;
-            topleft_point.x = 0;
-            topleft_point.y = 0;
-        };
+        var rectangle = this.get_rectangle (this.start_point, this.end_point);
 
         var screen_width = this.get_size(Gtk.Orientation.HORIZONTAL);
         var screen_height = this.get_size(Gtk.Orientation.VERTICAL);
 
-        this.captured ((int) topleft_point.x, (int) topleft_point.y,
-                       (int) area.w, (int) area.h,
+        this.captured ((int) rectangle.x, (int) rectangle.y,
+                       (int) rectangle.w, (int) rectangle.h,
                        screen_width, screen_height);
     }
 
@@ -93,15 +87,20 @@ public class AreaSelector.Window : Gtk.Window {
         return true;
     }
 
-    private Point get_topleft_point (Point p1, Point p2) {
+    private Rectangle get_rectangle (Point p1, Point p2) {
         var min_x = p1.x > p2.x ? p2.x : p1.x;
         var min_y = p1.y > p2.y ? p2.y : p1.y;
-        return { min_x, min_y };
-    }
 
-    private Area get_area (Point p1, Point p2) {
         var w = (p1.x - p2.x).abs ();
         var h = (p1.y - p2.y).abs ();
-        return {w, h};
+
+        if (w == 0 && h == 0) {
+            w = min_x;
+            h = min_y;
+            min_x = 0;
+            min_y = 0;
+        };
+
+        return { min_x, min_y, w, h };
     }
 }
