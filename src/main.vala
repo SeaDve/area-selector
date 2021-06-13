@@ -14,7 +14,7 @@ int main (string[] argv) {
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
 
-        unowned var css_data = (uint8[]) ".transparent { background: rgba(0, 0, 0, 0.004); }";
+        unowned var css_data = ((uint8[]) ".transparent { background: rgba(0, 0, 0, 0.004); }");
         css_provider.load_from_data (css_data);
 
         var window = new AreaSelector.Window (app);
