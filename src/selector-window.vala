@@ -49,9 +49,8 @@ public class AreaSelector.Window : Gtk.Window {
         this.end_point = { x, y };
 
         var rectangle = this.get_rectangle (this.start_point, this.end_point);
-
-        var screen_width = this.get_size(Gtk.Orientation.HORIZONTAL);
-        var screen_height = this.get_size(Gtk.Orientation.VERTICAL);
+        var screen_width = this.get_size (Gtk.Orientation.HORIZONTAL);
+        var screen_height = this.get_size (Gtk.Orientation.VERTICAL);
 
         this.captured ((int) rectangle.x, (int) rectangle.y,
                        (int) rectangle.w, (int) rectangle.h,
@@ -82,7 +81,7 @@ public class AreaSelector.Window : Gtk.Window {
     [GtkCallback]
     private bool on_key_pressed_notify (uint keyval, uint keycode) {
         if (keyval == 65307) {
-            this.close ();
+            this.cancelled ();
         };
         return true;
     }

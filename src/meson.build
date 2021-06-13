@@ -10,7 +10,7 @@ areaselector_deps = [
 gnome = import('gnome')
 areaselector_sources += gnome.compile_resources('area-selector-resources',
   'area-selector.gresource.xml',
-  c_name: 'kooha'
+  c_name: 'area_selector'
 )
 
 executable('areaselector', areaselector_sources,
