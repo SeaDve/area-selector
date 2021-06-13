@@ -18,11 +18,8 @@ public class AreaSelector.Window : Gtk.Window {
     }
 
     construct {
-        this.add_css_class ("transparent");
-        this.deletable = false;
-        this.decorated = false;
         this.fullscreen ();
-        this.drawing_area.set_cursor (new Gdk.Cursor.from_name("crosshair", null));
+        this.drawing_area.set_cursor_from_name ("crosshair");
     }
 
     struct Point {
