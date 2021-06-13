@@ -19,8 +19,8 @@ int main (string[] argv) {
 
         var window = new AreaSelector.Window (app);
 
-        window.captured.connect ((x, y, w, h) => {
-            stdout.printf ("%d, %d, %d, %d\n", x, y, w, h);
+        window.captured.connect ((x, y, w, h, scr_w, scr_h) => {
+            stdout.printf ("%d %d %d %d %d %d", x, y, w, h, scr_w, scr_h);
             window.close ();
         });
 

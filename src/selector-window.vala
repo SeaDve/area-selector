@@ -3,7 +3,7 @@
 
 [GtkTemplate (ui = "/io/github/seadve/AreaSelector/selector-window.ui")]
 public class AreaSelector.Window : Gtk.Window {
-    public signal void captured (int x, int y, int w, int h);
+    public signal void captured (int x, int y, int w, int h, int scr_w, int scr_h);
     public signal void cancelled ();
 
     private bool dragging { get; set; }
@@ -56,7 +56,12 @@ public class AreaSelector.Window : Gtk.Window {
             topleft_point.y = 0;
         };
 
-        this.captured ((int) topleft_point.x, (int) topleft_point.y, (int) area.w, (int) area.h);
+        var screen_width = this.get_size(Gtk.Orientation.HORIZONTAL);
+        var screen_height = this.get_size(Gtk.Orientation.VERTICAL);
+
+        this.captured ((int) topleft_point.x, (int) topleft_point.y,
+                       (int) area.w, (int) area.h,
+                       screen_width, screen_height);
     }
 
     [GtkCallback]
