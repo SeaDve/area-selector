@@ -5,8 +5,4 @@ project('areaselector', ['c', 'vala'],
                    ],
 )
 
-
-
-
 subdir('src')
-

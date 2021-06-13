@@ -4,9 +4,7 @@ areaselector_sources = [
 ]
 
 areaselector_deps = [
-  dependency('glib-2.0'),
   dependency('gtk4'),
-  dependency('gobject-2.0'),
 ]
 
 gnome = import('gnome')
