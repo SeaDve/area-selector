@@ -1,6 +1,18 @@
 // SPDX-FileCopyrightText: Copyright 2021 SeaDve
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+private struct Rectangle {
+    public double x;
+    public double y;
+    public double w;
+    public double h;
+}
+
+private struct Point {
+    public double x;
+    public double y;
+}
+
 [GtkTemplate (ui = "/io/github/seadve/AreaSelector/selector-window.ui")]
 public class AreaSelector.Window : Gtk.Window {
     public signal void captured (int x, int y, int w, int h, int scr_w, int scr_h);
@@ -20,18 +32,6 @@ public class AreaSelector.Window : Gtk.Window {
     construct {
         this.fullscreen ();
         this.drawing_area.set_cursor_from_name ("crosshair");
-    }
-
-    struct Point {
-        public double x;
-        public double y;
-    }
-
-    struct Rectangle {
-        public double x;
-        public double y;
-        public double w;
-        public double h;
     }
 
     [GtkCallback]
