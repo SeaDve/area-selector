@@ -45,7 +45,7 @@ public class AreaSelector.Window : Gtk.Window {
         this.dragging = false;
         this.end_point = { x, y };
 
-        var rectangle = this.get_rectangle (this.start_point, this.end_point);
+        var rectangle = this.get_geometry (this.start_point, this.end_point);
         var screen_width = this.get_size (Gtk.Orientation.HORIZONTAL);
         var screen_height = this.get_size (Gtk.Orientation.VERTICAL);
 
@@ -83,7 +83,7 @@ public class AreaSelector.Window : Gtk.Window {
         return true;
     }
 
-    private Rectangle get_rectangle (Point p1, Point p2) {
+    private Rectangle get_geometry (Point p1, Point p2) {
         var min_x = p1.x > p2.x ? p2.x : p1.x;
         var min_y = p1.y > p2.y ? p2.y : p1.y;
 
