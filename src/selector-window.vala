@@ -66,9 +66,7 @@ public class AreaSelector.Window : Gtk.Window {
         this.drawing_area.set_draw_func ((da, ctx, da_w, da_h) => {
             ctx.rectangle (start_point.x, start_point.y, w, h);
             ctx.set_source_rgba (0.1, 0.45, 0.8, 0.3);
-            ctx.fill ();
-
-            ctx.rectangle (start_point.x, start_point.y, w, h);
+            ctx.fill_preserve ();
             ctx.set_source_rgb (0.1, 0.45, 0.8);
             ctx.set_line_width (1);
             ctx.stroke ();
