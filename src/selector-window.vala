@@ -32,6 +32,9 @@ public class AreaSelector.Window : Gtk.Window {
     construct {
         this.fullscreen ();
         this.drawing_area.set_cursor_from_name ("crosshair");
+        this.drawing_area.set_draw_func ((da, ctx, da_w, da_h) => {
+            ctx.new_path ();
+        });
     }
 
     [GtkCallback]
@@ -46,8 +49,8 @@ public class AreaSelector.Window : Gtk.Window {
         this.end_point = { x, y };
 
         var rectangle = this.get_geometry (this.start_point, this.end_point);
-        var screen_width = this.get_size (Gtk.Orientation.HORIZONTAL);
-        var screen_height = this.get_size (Gtk.Orientation.VERTICAL);
+        var screen_width = this.get_width ();
+        var screen_height = this.get_height ();
 
         this.captured ((int) rectangle.x, (int) rectangle.y,
                        (int) rectangle.w, (int) rectangle.h,

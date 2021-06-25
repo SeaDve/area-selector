@@ -4,6 +4,7 @@
   <template class="AreaSelectorWindow" parent="GtkWindow">
     <property name="deletable">False</property>
     <property name="decorated">False</property>
+    <property name="css-classes"/>
     <child>
       <object class="GtkDrawingArea" id="drawing_area"/>
     </child>
@@ -25,8 +26,5 @@
         <signal name="key-pressed" handler="on_key_pressed_notify" swapped="no"/>
       </object>
     </child>
-    <style>
-      <class name="transparent"/>
-    </style>
   </template>
 </interface>
