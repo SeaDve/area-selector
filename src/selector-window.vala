@@ -80,8 +80,9 @@ public class AreaSelector.Window : Gtk.Window {
     private bool on_key_pressed_notify (uint keyval, uint keycode) {
         if (keyval == 65307) {
             this.cancelled ();
+            return true;
         };
-        return true;
+        return false;
     }
 
     private Rectangle get_geometry (Point p1, Point p2) {
