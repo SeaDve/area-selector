@@ -78,7 +78,7 @@ public class AreaSelector.Window : Gtk.Window {
 
     [GtkCallback]
     private bool on_key_pressed_notify (uint keyval, uint keycode) {
-        if (keyval == 65307) {
+        if (keyval == Gdk.keyval_from_name("Escape")) {
             this.cancelled ();
             return true;
         };
